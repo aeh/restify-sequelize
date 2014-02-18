@@ -5,14 +5,14 @@ var glob = require('glob'),
 
 module.exports = function(server, sequelize, options) {
   options = options || {};
-  options.files = options.files || './models/*.js';
-  var cwd = options.cwd || process.cwd();
+  options.files = options.files || '*.js';
+  options.cwd = options.cwd || './models';
 
   // load models
   var models = {};
   glob.sync(options.files, options).forEach(function(file) {
     var name = path.basename(file, path.extname(file));
-    models[name] = sequelize.import(cwd + '/' + file);
+    models[name] = sequelize.import(options.cwd + '/' + file);
   });
 
   // make models available to all requests
