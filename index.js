@@ -1,6 +1,7 @@
 'use strict';
 
-var glob = require('glob');
+var glob = require('glob'),
+    path = require('path');
 
 module.exports = function(server, sequelize, options) {
   options = options || {};
@@ -10,8 +11,8 @@ module.exports = function(server, sequelize, options) {
   // load models
   var models = {};
   glob.sync(options.files, options).forEach(function(file) {
-    if (file === 'index.js') return;
-    models[file.slice(0, -3)] = sequelize.import(cwd + '/' + file);
+    var name = path.basename(file, path.extname(file));
+    models[name] = sequelize.import(cwd + '/' + file);
   });
 
   // make models available to all requests
