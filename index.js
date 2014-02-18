@@ -3,7 +3,7 @@
 var glob = require('glob'),
     path = require('path');
 
-module.exports = function(server, sequelize, options) {
+module.exports = function(sequelize, options) {
   options = options || {};
   options.files = options.files || '*.js';
   options.cwd = options.cwd || process.cwd() + '/models';
@@ -16,8 +16,8 @@ module.exports = function(server, sequelize, options) {
   });
 
   // make models available to all requests
-  server.use(function(req, res, next) {
+  return function(req, res, next) {
     req.models = models;
     next();
-  });
+  }
 };
