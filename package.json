@@ -1,11 +1,11 @@
 {
-  "name": "restify-jwt",
+  "name": "restify-sequelize",
   "version": "0.0.1",
-  "description": "Json web token plugin for node restify",
+  "description": "Auto load sequelize models in node restify",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/aeh/restify-jwt.git"
+    "url": "git://github.com/aeh/restify-sequelize.git"
   },
   "author": "Andrew Harris",
   "license": "BSD",
