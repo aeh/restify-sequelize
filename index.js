@@ -6,7 +6,7 @@ var glob = require('glob'),
 module.exports = function(server, sequelize, options) {
   options = options || {};
   options.files = options.files || '*.js';
-  options.cwd = options.cwd || './models';
+  options.cwd = options.cwd || process.cwd() + '/models';
 
   // load models
   var models = {};
