@@ -1,2 +1,2 @@
-restify-sequelize-models
-========================
+restify-sequelize
+=================
