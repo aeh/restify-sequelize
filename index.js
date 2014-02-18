@@ -3,6 +3,7 @@
 var glob = require('glob');
 
 module.exports = function(server, sequelize, options) {
+  options = options || {};
   options.files = options.files || './models/*.js';
 
   // load models
